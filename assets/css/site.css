@@ -1,0 +1,5 @@
+/* Template CSS */
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #aaa;
+}

@@ -1,0 +1,26 @@
+<header class="business-header">
+  <div class="container h-100 bg-info">
+    <div class="row h-100 p-5">
+      <div class="col-lg-12 d-flex h-100 justify-content-center p-5">
+        <h1 class="bg-light text-info display-3 align-self-center shadow-lg px-5 py-2 rounded">
+          {{{articleBody.h1-header-title}}}
+        </h1>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="bg-secondary">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb bg-secondary mb-0">
+        {{#each breadcrumb.itemListElement}}
+          {{~#if @last~}}
+            <li class="breadcrumb-item active text-light"><span>{{item.name}}</span></li>
+          {{~else~}}
+            <li class="breadcrumb-item text-white"><a class="text-white" href="{{item.[@id]}}">{{item.name}}</a></li>
+          {{~/if~}}
+        {{/each}}
+      </ol>
+    </nav>
+  </div>
+</div>

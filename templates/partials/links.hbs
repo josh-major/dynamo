@@ -1,0 +1,28 @@
+    {{#if significantLink}}
+      <div class="links">
+        <div class="container bg-secondary p-5">
+          {{#combineLinks significantLink 'links'}}
+            {{#withGroupFilter this "genre"}}
+              <div class="row">
+                <div class="col-sm-12 px-1 pt-4">
+                  <h3 class="text-light">
+                    {{#if this.[0].genre}}
+                      {{this.[0].genre}}
+                    {{else}}
+                      {{../../articleBody.links-title}}
+                    {{/if}}
+                  </h3>
+                </div>
+                {{#each (sortBy this "name")}}
+                  <div class="col-xs-12 col-sm-6 col-md-3 py-2">
+                    <a class="text-light" href="{{url}}">
+                      {{name}}
+                    </a>
+                  </div>
+                {{/each}}
+              </div>
+            {{/withGroupFilter}}
+          {{/combineLinks}}
+        </div>
+      </div>
+    {{/if}}

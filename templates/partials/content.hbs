@@ -1,0 +1,18 @@
+<div>
+  <div class="container bg-light p-5">
+    {{#articleBody 'content'}}
+      <div class="px-5 py-1">
+        {{#if articleBody.content-title}}
+          <h2>{{articleBody.content-title}}</h2>
+        {{/if}}
+        {{#if articleBody.content-text-1}}
+          <p>
+            {{#articleBody 'content-text'}}
+              {{articleBody.content-text}}
+            {{/articleBody}}
+          </p>
+        {{/if}}
+      </div>
+    {{/articleBody}}
+  </div>
+</div>
