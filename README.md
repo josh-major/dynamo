@@ -36,6 +36,9 @@ There are a few conventions that those layer names should follow:
   - \* **Note: The comps will have # placeholders, but the data will contain actual numbers**
 - Layer names containing `anchor-text` indicate that a URL will be provided in another variable containing `link` in place of `anchor-text`.
 
+The majority of variables should be output with HTML support (three curly brackets).
+The exception to this is any value output within an HTML element attribute (like `href`).
+
 ### Asset Delivery
 
 Once the HBS (HTML), CSS, and JS are in place to match the design comps, please package the created files.
