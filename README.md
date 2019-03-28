@@ -20,6 +20,14 @@ You should receive access to design comps and a JSON data file.
 11. Validate the rendered HTML using validator.w3.org.
 12. Package the deliverables based on the `Asset Delivery` section below.
 
+### Page Rendering
+
+The `pages.json` should represent an array of objects.
+Each object should have a `url` property that defines the development URL the page will be viewable at.
+
+The `potentialAction` property of each object should be an array of objects.
+The object with a `name` property set to "renderHTML" will have an `assembly` property that defines which file in the `/templates/` folder will be used for rendering the page.
+
 ### Variable Naming Conventions
 
 All user visible text content on GetLocal sites is intended to be driven via data.
