@@ -7,6 +7,8 @@ const fs = require('fs')
 const hbs = require('express-handlebars')
 const path = require('path')
 
+global.handlebars = require('handlebars')
+
 // Configuration
 const config = {
   'assets': './assets',
@@ -39,6 +41,7 @@ const helpers = fs.readdirSync(config.helpers)
 
 // Configure Express server
 app.engine(config.extension, hbs({
+  handlebars: global.handlebars,
   extname: config.extension,
   partialsDir: config.partials,
   helpers: helpers
@@ -55,6 +58,10 @@ app.use((req, res, next) => {
 
     if (render) {
       res.render(render.assembly, page, (error, html) => {
+        if (error) {
+          console.error(error);
+        }
+
         error ? res.status(500).send(error.message) : res.send(html)
       })
     } else {

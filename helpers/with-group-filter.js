@@ -3,8 +3,12 @@
 var helper = require('handlebars-helpers/lib/object');
 var handlebars = require('handlebars');
 
-module.exports = function(list, property, options) {
+module.exports = function(list, property, match, options) {
   var sorted = { };
+  if (typeof match === 'object') {
+    options = match;
+    match = false;
+  }
 
   (list || []).forEach(function(object) {
     var key = helper.get(property, object);
@@ -13,10 +17,12 @@ module.exports = function(list, property, options) {
       key = JSON.stringify(key);
     }
 
-    if (key in sorted) {
-      sorted[key].push(object);
-    } else {
-      sorted[key] = [object];
+    if (!match || match === key) {
+      if (key in sorted) {
+        sorted[key].push(object);
+      } else {
+        sorted[key] = [object];
+      }
     }
   });
 

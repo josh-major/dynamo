@@ -1,18 +1,27 @@
-<div>
-  <div class="container bg-light p-5">
+<div class="bg-white py-5">
+  <div class="container">
     {{#articleBody 'content'}}
-      <div class="px-5 py-1">
+      {{#articleBody 'content'}}
         {{#if articleBody.content-title}}
-          <h2>{{articleBody.content-title}}</h2>
+          <h2>
+            {{{articleBody.content-title}}}
+          </h2>
         {{/if}}
-        {{#if articleBody.content-text-1}}
+        {{#if (or articleBody.content-text-1 articleBody.content-cta-link)}}
           <p>
             {{#articleBody 'content-text'}}
-              {{articleBody.content-text}}
+              {{{articleBody.content-text}}}
             {{/articleBody}}
+            {{#if articleBody.content-cta-link}}
+              <span class="btn-holder">
+                <a href="{{articleBody.content-cta-link}}" class="btn btn-danger content-cta-button" {{~linkOptimization articleBody.content-cta-link}}>
+                  {{{articleBody.content-cta-anchor-text}}}
+                </a>
+              </span>
+            {{/if}}
           </p>
         {{/if}}
-      </div>
+      {{/articleBody}}
     {{/articleBody}}
   </div>
 </div>

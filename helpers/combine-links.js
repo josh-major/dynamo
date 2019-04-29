@@ -7,12 +7,17 @@ module.exports = function(links, prefix, options) {
   var map = { };
   var set = [];
 
+  if (this.moduleOffset) {
+    prefix += '-' + this.moduleOffset;
+  }
+
   try {
     var articleBody = options.data.root.articleBody;
 
     Object.keys(articleBody).forEach(function(key) {
       try {
         if (key.substr(0, prefix.length + 1) === prefix + '-' && key.match(/\-[0-9]+$/)) {
+
           var type = key.substr(prefix.length + 1, key.lastIndexOf('-') - prefix.length - 1);
           var offset = parseInt(key.substr(key.lastIndexOf('-') + 1));
 
