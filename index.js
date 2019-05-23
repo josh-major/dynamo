@@ -50,7 +50,7 @@ app.set('view engine',config.extension)
 app.set('views', config.views)
 
 // Configure Middleware
-app.use('/assets', express.static('assets'))
+app.use('/assets/dist', express.static('assets'))
 app.use((req, res, next) => {
   if (req.url in pages) {
     const page = pages[req.url]
