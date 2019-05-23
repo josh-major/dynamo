@@ -20,6 +20,22 @@ You should receive access to design comps and a JSON data file.
 11. Validate the rendered HTML using validator.w3.org.
 12. Package the deliverables based on the `Asset Delivery` section below.
 
+### Required Best Practices
+
+For comprehension, future proofing, and maintainability, please follow the following best practices.
+
+1. Use `/assets/dist/` as the base for media references.
+2. Use the `{{#articleBody}}` helper to avoid hard coding numbers in variables (unless in `{{#if}}` helpers).
+3. Attempt to only use partials to coordinate with comp modules.
+4. Do not nest partials if the template allows.
+5. Use 2 spaces for indentation.
+6. Consistently dash-case name partials.
+7. Name partials after comp variable groups where possible.
+  a. Place variable group references in the name first, so similar partials are grouped on the filesystem.
+8. Avoid hard coding any user visible text (expect variables).
+9. Utilize triple brackets for all articleBody driven output, except in HTML attributes.
+10. Do not duplicate content for responsive, unless responsive variables are provided.
+
 ### Page Rendering
 
 The `pages.json` should represent an array of objects.
