@@ -14,7 +14,7 @@ const config = {
   'assets': './assets',
   'extension': '.hbs',
   'helpers': './assets/js/helpers',
-  'data': './data/pages',
+  'data': './data/pages.json',
   'partials': './templates/partials/',
   'views': './',
   'port': 5000
@@ -22,7 +22,8 @@ const config = {
 
 // Load Express server and supporting data
 const app = express()
-const pages = require(config.data).reduce((pages, item) => {
+const pages = JSON.parse(fs.readFileSync(config.data))
+.reduce((pages, item) => {
   pages[item.url] = item;
 
   return pages;
@@ -50,7 +51,8 @@ app.set('view engine',config.extension)
 app.set('views', config.views)
 
 // Configure Middleware
-app.use('/assets/dist', express.static('assets'))
+app.use('/assets/dist/', express.static('assets/'))
+
 app.use((req, res, next) => {
   if (req.url in pages) {
     const page = pages[req.url]
