@@ -14,8 +14,14 @@
     "express": "^4.8.2",
     "express-handlebars": "^3.0.2",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
     "gulp-nodemon": "^2.4.2",
-    "handlebars-helpers": "^0.10.0"
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "handlebars-helpers": "^0.10.0",
+    "postcss-nested": "^4.2.1"
   },
   "extensions": {},
   "license": "UNLICENSED"
