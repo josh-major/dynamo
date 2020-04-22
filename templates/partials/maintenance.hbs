@@ -1,0 +1,107 @@
+{{#withMatch (get articleBody.maintenance-data this) articleBody.maintenance-filter-on articleBody.maintenance-filter-by}}
+  <div class="py-5 section">
+  	<div class="container">
+      {{#with ..}}
+    		{{#if articleBody.schedule-title-1}}
+    			<h2>
+    				{{#articleBody 'schedule-title'}}
+    					{{{articleBody.schedule-title}}}
+    				{{/articleBody}}
+    			</h2>
+    		{{/if}}
+    		<div class="col-12">
+    			{{#articleBody 'schedule-text'}}
+    				<p>
+    					{{#articleBody 'schedule-text'}}
+    						{{{articleBody.schedule-text}}}
+    					{{/articleBody}}
+    				</p>
+    			{{/articleBody}}
+  		  </div>
+      {{/with}}
+  		<div class="tab-holder row" id="vehicle-milage">
+					<div class="dropdown col-12 col-md-6" data-select-type="vehicle">
+						<button class="custom-select dropdown-toggle text-uppercase text-left mb-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{{../articleBody.maintenance-trim-option}}}
+						</button>
+						<ul class="nav nav-tabs bg-light dropdown-menu" id="maintenance" role="tablist" aria-labelledby="dropdownMenuButton">
+							<li class="nav-item dropdown-item">
+								<a class="nav-link active" id="trim-disabled-tab" data-toggle="tab" href="#trim-disabled" role="tab" aria-controls="trim-disabled" aria-selected="true">
+									{{{../articleBody.maintenance-trim-option}}}
+								</a>
+							</li>
+							{{#withGroupFilter this ../articleBody.maintenance-trim-data}}
+								{{#with (render ../../articleBody.maintenance-trim-option-item-text)}}
+									<li class="nav-item dropdown-item">
+										<a class="nav-link" id="trim-{{dashcase this}}-tab" data-toggle="tab" href="#trim-{{dashcase this}}" role="tab" aria-controls="trim-{{dashcase this}}" aria-selected="true">
+											{{{this}}}
+										</a>
+									</li>
+								{{/with}}
+							{{/withGroupFilter}}
+						</ul>
+					</div>
+  			<div class="tab-content tab-content__holder col-12 position-static" id="trim-maintenance">
+  				<div class="tab-pane fade show active" id="trim-disabled" role="tabpanel" aria-labelledby="trim-disabled">
+  					<div class="row">
+  						<div class="full-width position-static">
+  							<div class="dropdown button-absolute col-12" data-select-type="mileage">
+  										<button class="custom-select disabled dropdown-toggle text-uppercase text-left mb-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  											{{{../articleBody.maintenance-mileage-option}}}
+  										</button>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+  				{{#withGroupFilter this ../articleBody.maintenance-trim-data}}
+  					<div class="tab-pane fade" id="trim-{{dashcase (render ../../articleBody.maintenance-trim-option-item-text)}}" role="tabpanel" aria-labelledby="trim-{{dashcase (render ../../articleBody.maintenance-trim-option-item-text)}}">
+  						<div class="row">
+  							<div class="full-width position-static">
+  								<div class="dropdown button-absolute col-12 col-md-7" data-select-type="mileage">
+  									<button class="custom-select dropdown-toggle text-uppercase text-left mb-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  										{{{../../articleBody.maintenance-mileage-option}}}
+  									</button>
+  									<ul class="nav dropdown-menu flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  										{{#withGroupFilter this ../../articleBody.maintenance-mileage-data}}
+  											<li class="nav-item">
+  												<a class="nav-link" data-toggle="pill" href="#trim-{{dashcase (render ../../../articleBody.maintenance-mileage-option-item-text)}}-{{dashcase (render ../../../articleBody.maintenance-trim-option-item-text)}}-tab" role="tab" aria-controls="trim-{{dashcase (render ../../../articleBody.maintenance-mileage-option-item-text)}}-{{dashcase (render ../../../articleBody.maintenance-trim-option-item-text)}}-tab" aria-selected="false">
+  													{{{ addCommas (render ../../../articleBody.maintenance-mileage-option-item-text)}}} miles
+  												</a>
+  											</li>
+  										{{/withGroupFilter}}
+  									</ul>
+  								</div>
+  							</div>
+  							<div class="col-12 col-md-10">
+  								<div class="tab-content carousel">
+  									{{#withGroupFilter this ../../articleBody.maintenance-mileage-data}}
+  										<div class="slide tab-pane fade" id="trim-{{dashcase (render ../../../articleBody.maintenance-mileage-option-item-text)}}-{{dashcase (render ../../../articleBody.maintenance-trim-option-item-text)}}-tab" role="tabpanel" aria-labelledby="trim-{{dashcase (render ../../../articleBody.maintenance-mileage-option-item-text)}}-{{dashcase (render ../../../articleBody.maintenance-trim-option-item-text)}}-tab">
+  											<button class="slick-arrow slick-prev fa fa-chevron-left"></button>
+  											<button class="slick-arrow slick-next fa fa-chevron-right"></button>
+  											<h4 class="title">
+  												{{{ addCommas (render ../../../articleBody.schedule-info-title)}}}
+  											</h4>
+  											<p>
+  												{{{render ../../../articleBody.schedule-info-text}}}
+  											</p>
+  											<ul>
+  											{{#withGroupFilter this ../../../articleBody.schedule-info-data}}
+  												{{#each this}}
+  													<li>
+  														{{{render ../../../../../articleBody.schedule-info-list}}}
+  													</li>
+  												{{/each}}
+  											{{/withGroupFilter}}
+  											</ul>
+  										</div>
+  									{{/withGroupFilter}}
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+  				{{/withGroupFilter}}
+  			</div>
+  		</div>
+  	</div>
+  </div>
+{{/withMatch}}

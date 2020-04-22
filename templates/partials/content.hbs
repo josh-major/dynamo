@@ -1,27 +1,31 @@
-<div class="bg-white py-5">
-  <div class="container">
-    {{#articleBody 'content'}}
+{{#if (append 'articleBody.content-' (append moduleOffset '-title-1'))}}
+  <section class="section">
+    <div class="container">
       {{#articleBody 'content'}}
-        {{#if articleBody.content-title}}
-          <h2>
-            {{{articleBody.content-title}}}
-          </h2>
-        {{/if}}
-        {{#if (or articleBody.content-text-1 articleBody.content-cta-link)}}
-          <p>
-            {{#articleBody 'content-text'}}
-              {{{articleBody.content-text}}}
-            {{/articleBody}}
-            {{#if articleBody.content-cta-link}}
-              <span class="btn-holder">
-                <a href="{{articleBody.content-cta-link}}" class="btn btn-danger content-cta-button" {{~linkOptimization articleBody.content-cta-link}}>
-                  {{{articleBody.content-cta-anchor-text}}}
-                </a>
-              </span>
-            {{/if}}
-          </p>
-        {{/if}}
+        {{#articleBody 'content'}}
+          {{#if articleBody.content-title}}
+            <h2>
+              {{{articleBody.content-title}}}
+            </h2>
+          {{/if}}
+          {{#if (or articleBody.content-text-1 articleBody.content-cta-link)}}
+            <div class="col-12">
+              <p>
+                {{#articleBody 'content-text'}}
+                  {{{articleBody.content-text}}}
+                {{/articleBody}}
+                {{#if articleBody.content-cta-link}}
+                  <span class="btn-holder">
+                    <a href="{{articleBody.content-cta-link}}" class="btn btn-danger content-cta-button" {{~linkOptimization articleBody.content-cta-link}}>
+                      {{{articleBody.content-cta-anchor-text}}}
+                    </a>
+                  </span>
+                {{/if}}
+              </p>
+            </div>
+          {{/if}}
+        {{/articleBody}}
       {{/articleBody}}
-    {{/articleBody}}
-  </div>
-</div>
+    </div>
+  </section>
+{{/if}}

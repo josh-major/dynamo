@@ -1,2 +1,87 @@
+    <footer>
+      <div class="top-footer">
+        <div class="container">
+          <div class="row justify-content-sm-between">
+            <div class="col-12 col-md-8">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom">
+                  {{#each breadcrumb.itemListElement}}
+                    {{~#if @last~}}
+                      <li class="breadcrumb-item active" aria-current="page">{{{item.name}}}</li>
+                    {{~else~}}
+                      <li class="breadcrumb-item"><a href="{{item.[@id]}}">{{{item.name}}}</a></li>
+                    {{~/if~}}
+                  {{/each}}
+                </ol>
+              </nav>
+            </div>
+            <div class="d-none d-md-block col-md-4">
+              <ul class="social-list">
+                <li><a href="{{articleBody.footer-social-twitter}}"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="{{articleBody.footer-social-facebook}}"><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href="{{articleBody.footer-social-instagram}}"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="{{articleBody.footer-social-youtube}}"><i class="fab fa-youtube"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="footer-nav d-none d-md-block">
+          <div class="grid-container">
+            {{#articleBody 'footer-menu'}}
+            <div class="grid-col">
+              {{#if articleBody.footer-menu-header}}
+              <h5>
+                {{{articleBody.footer-menu-header}}}
+              </h5>
+              {{/if}}
+              <ul>
+                {{#articleBody 'footer-menu-anchor-text'}}
+                <li>
+                  <a href="{{articleBody.footer-menu-link}}">
+                    {{{articleBody.footer-menu-anchor-text}}}
+                  </a>
+                </li>
+                {{/articleBody}}
+              </ul>
+            </div>
+            {{/articleBody}}
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-12 col-md-8 align-items-center align-items-md-start justify-content-center d-flex flex-column">
+              <ul class="main-nav-footer">
+                {{#articleBody 'footer-disclaimers'}}
+                <li>
+                  <a href="{{articleBody.footer-disclaimers-link}}">
+                    {{{articleBody.footer-disclaimers-anchor-text}}}
+                  </a>
+                </li>
+                {{/articleBody}}
+              </ul>
+              <div class="logo-holder d-block d-md-none">
+                <img src="/assets/dist/images/footer-brand.png" alt="Brand logo">
+              </div>
+              {{#if articleBody.footer-copyright}}
+                <span class="footer__copyright">
+                  {{{articleBody.footer-copyright}}}
+                </span>
+              {{/if}}
+            </div>
+            <div class="col-12 col-md-4 d-none d-md-block">
+              <div class="logo-holder">
+                {{#articleBody 'footer-brand'}}
+                  <a href="{{articleBody.footer-brand-link}}">
+                    <img src="/assets/dist/images/footer-brand.png" alt="{{articleBody.footer-brand}}">
+                  </a>
+                {{/articleBody}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,165 @@
+.top-bar {
+	background: $gray;
+	padding: 10px 0 9px;
+
+	ul {
+
+		li {
+
+			&:after {
+				content: '|';
+				display: inline-block;
+				vertical-align: baseline;
+				margin: 0 4px 0 2px;
+				color: #9b9b9b;
+			}
+
+			&:last-child {
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.main-bar {
+	padding: 21px 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	
+	@include media('>=desktop') {
+		padding: 26px 0 25px;
+	}
+
+	.container {
+
+		@include media('>=desktop') {
+			max-width: 1000px !important;
+		}
+		
+		@include media('>=widedesktop') {
+			max-width: 1200px !important;
+		}
+	}
+}
+
+.phone {
+	flex: 1 0 auto;
+
+	a {
+		font-size: 24px;
+		font-weight: 800;
+		color: #333333;
+		
+		@include media('>=tablet') {
+			font-size: 21px;
+		}
+		
+		@include media('>=desktop') {
+			font-size: 24px;
+		}
+	}
+}
+
+.navbar {
+	width: 100%;
+
+	&-brand {
+
+		@include media('>=desktop') {
+			max-width: 187px;
+		}
+		
+		@include media('>=widedesktop') {
+			max-width: none;
+			margin-right: 40px;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.nav-link {
+		font-family: $base-font-sans-serif;
+		font-size: 15px;
+		font-weight: 400;
+		text-transform: uppercase;
+		color: #333333 !important;
+		letter-spacing: 0.03em;
+
+		@include media('>=desktop') {
+			font-size: 12px;
+		}
+		
+		@include media('>=widedesktop') {
+			font-size: 15px;
+		}
+
+		&:hover {
+			color: lighten( #333333, 50% ) !important;
+		}
+	}
+
+	.navbar-brand {
+		display: inline-block;
+		vertical-align: middle;
+		height: 26px;
+
+		@include media('>=tablet') {
+			height: 30px;
+		}
+		
+		@include media('>=desktop') {
+			height: 33px;
+		}
+		
+		@include media('>=widescreen') {
+			height: 39px;
+		}
+	}
+
+	.navbar-toggler {
+		@include animate(transform);
+		position: relative;
+		border: none;
+		width: 30px;
+		height: 28px;
+		outline: none;
+		transform: rotate(270deg);
+
+		&.collapsed {
+			transform: rotate(0);
+		}
+
+		span {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			width: 30px;
+			height: 4px;
+			background-color: #878785;
+			
+			&:before,
+			&:after {
+				position: absolute;
+				content: '';
+				height: 4px;
+				width: 100%;
+				background-color: #878785;
+			}
+
+			&:before {
+				bottom: calc(100% + 8px);
+				left: 0;
+			}
+			
+			&:after {
+				top: calc(100% + 8px);
+				left: 0;
+			}
+		}
+	}
+}

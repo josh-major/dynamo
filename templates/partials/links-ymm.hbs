@@ -1,0 +1,28 @@
+{{#if significantLink}}
+	<section class="section manufacturer">
+		<div class="container">
+			{{#if (get (append 'articleBody.links-' (append moduleOffset '-title-1')) this)}}
+				<h2>
+					{{#articleBody 'links'}}
+						{{#articleBody 'links-title'}}
+							{{{articleBody.links-title}}}
+						{{/articleBody}}
+					{{/articleBody}}
+				</h2>
+			{{/if}}
+			<div class="col-12">
+				<ul class="listreset columns" data-select-links>
+					{{#combineLinks significantLink 'links'}}
+						{{#each (sortBy this "name")}}
+							<li class="text-center text-sm-left">
+								<a href="{{url}}">
+									{{{name}}}
+								</a>
+							</li>
+						{{/each}}
+					{{/combineLinks}}
+				</ul>
+			</div>
+		</div>
+	</section>
+{{/if}}

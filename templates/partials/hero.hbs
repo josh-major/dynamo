@@ -15,9 +15,13 @@
       <ol class="breadcrumb bg-secondary mb-0">
         {{#each breadcrumb.itemListElement}}
           {{~#if @last~}}
-            <li class="breadcrumb-item active text-light"><span>{{item.name}}</span></li>
+            <li class="breadcrumb-item active text-light"><span>
+              {{{~item.name~}}}
+            </span></li>
           {{~else~}}
-            <li class="breadcrumb-item text-white"><a class="text-white" href="{{item.[@id]}}">{{item.name}}</a></li>
+            <li class="breadcrumb-item text-white"><a class="text-white" href="{{item.[@id]}}">
+              {{{~item.name~}}}
+            </a></li>
           {{~/if~}}
         {{/each}}
       </ol>

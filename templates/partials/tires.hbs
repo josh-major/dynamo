@@ -1,0 +1,78 @@
+<section class="section gray">
+  <div class="container">
+    <h2>
+      {{#articleBody 'tires-title'}}
+        {{{articleBody.tires-title}}}
+      {{/articleBody}}
+    </h2>
+    <div class="col-12">
+      {{#articleBody 'tires-text'}}
+        <p>
+          {{#articleBody 'tires-text'}}
+            {{{articleBody.tires-text}}}
+          {{/articleBody}}
+        </p>
+      {{/articleBody}}
+    </div>
+    <div class="tires-holder col-12">
+      {{#with (sortBy isRelatedTo "name")}}
+        {{#withGroupFilter this "name"}}
+          {{#with this.[0]}}
+            <div class="row tire-item">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12 col-md-9">
+                    <div class="row">
+                      <div class="col-md-4 col-lg-3">
+                        <div class="tire-image">
+                          <img src="{{image}}" alt="{{render ../../../articleBody.tire-name}}">
+                        </div>
+                      </div>
+                      <div class="col-md-8 col-lg-9">
+                        <div class="row">
+                          <div class="col-12 col-md-12 col-xl-7">
+                            <div class="row">
+                              <div class="col-12 tire-item__title-wrap">
+                                <img class="tire-item__brand" src="{{manufacturer.image}}" alt="">
+                                <span class="tire-name text-uppercase">
+                                  {{{render ../../../articleBody.tire-name}}}
+                                </span>
+                              </div>
+                              <div class="col-12">
+                                <p class="left-offset">
+                                  {{{render ../../../articleBody.tire-info}}}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-12 col-xl-5 d-flex align-items-md-center">
+                            <ul class="key-list">
+                              {{#with ../../..}}
+                              {{#articleBody 'tire-'}}
+                              {{#with ../..}}
+                              <li>
+                                {{{render ../articleBody.tire-key-text}}}
+                              </li>
+                              {{/with}}
+                              {{/articleBody}}
+                              {{/with}}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-holder col-12 col-md-3 d-flex justify-content-end align-items-center">
+                    <a class="btn btn-custom btn-primary" href="{{render ../../../articleBody.tire-cta-link}}">
+                      {{{render ../../../articleBody.tire-cta-anchor-text}}}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{/with}}
+        {{/withGroupFilter}}
+      {{/with}}
+    </div>
+  </div>
+</section>

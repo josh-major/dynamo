@@ -1,0 +1,43 @@
+<header>
+  <div class="top-bar d-none d-md-block">
+    <div class="container d-md-flex justify-content-end">
+      <ul class="d-md-flex listreset">
+        {{#articleBody 'top'}}
+          <li>
+            <a href="{{articleBody.top-link}}">
+              {{{articleBody.top-anchor-text}}}
+            </a>
+          </li>
+        {{/articleBody}}
+      </ul>
+    </div>
+  </div>
+  <div class="main-bar">
+    <div class="container">
+      <div class="row justify-content-between align-items-center flex-md-nowrap">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="{{articleBody.menu-brand-link}}"></a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              {{#articleBody 'menu'}}
+                <li class="nav-item">
+                  <a href="{{articleBody.menu-link}}" class="nav-link">
+                    {{{articleBody.menu-anchor-text}}}
+                  </a>
+                </li>
+              {{/articleBody}}
+            </ul>
+          </div>
+        </nav>
+        <div class="phone d-none d-lg-block">
+          {{#if articleBody.top-phone-number}}
+            {{{articleBody.top-phone-number}}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

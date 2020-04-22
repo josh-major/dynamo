@@ -1,0 +1,21 @@
+.go-to-shop {
+	background-image: url(../images/body-cta-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: $white;
+	padding: 30px 0;
+	text-align: center;
+
+	@include media('>=tablet') {
+		text-align: left;
+	}
+
+	h2 {
+		color: $white;
+	}
+
+	.btn-custom {
+		font-size: 19px;
+		line-height: 1.26;
+	}
+}

@@ -1,0 +1,134 @@
+footer {
+	.top-footer {
+		background-image: linear-gradient(180deg, $gray 0%, $white 100%);
+		padding-top: 30px;
+	}
+	.footer-bottom {
+		padding: 20px 0 38px;
+
+		> * {
+			font-size: 11px;
+		}
+
+		span {
+			font-weight: 300;
+			line-height: 1.36;
+		}
+	}
+
+	.logo-holder {
+		text-align: center;
+		padding: 20px 0;
+
+		@include media('>=tablet') {
+			text-align: right;
+		}
+	}
+
+	.footer-nav {
+		border: 1px solid #cccccc;
+		border-width: 1px 0 1px 0;
+		padding: 20px 0;
+
+		ul {
+			@extend %listreset;
+
+			a {
+				font-size: 11px;
+			}
+		}
+
+		h5 {
+			font-family: $base-font-sans-serif;
+			font-weight: 800;
+			text-transform: uppercase;
+		}
+	}
+
+	.footer__copyright {
+
+		@include media('<tablet') {
+			max-width: 180px;
+			text-align: center;
+		}
+	}
+
+	.main-nav-footer {
+		@extend %listreset;
+		line-height: 2;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 17px;
+
+		>li {
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
+		}
+	}
+}
+
+//massonry grid
+.grid-container {
+	margin-right: -15px;
+	margin-left: -15px;
+
+	@include media('>=desktop') {
+		margin-right: -20px;
+		margin-left: -20px;
+	}
+	
+	@include media('>=1280px') {
+		margin-right: -35px;
+		margin-left: -35px;
+		
+	}
+
+	.grid-col {
+		width: 22.55%;
+	}
+}
+
+.social-list {
+	@extend %listreset;
+	font-size: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	>li {
+		&:not(:last-child) {
+			margin-right: 30px;
+		}
+	}
+}
+
+.breadcrumb-custom {
+	background-color: transparent;
+	padding-left: 0;
+	align-items: center;
+	justify-content: center;
+	font-size: 11px;
+	margin-bottom: 0;
+
+	@include media('>=tablet') {
+		font-size: 16px;
+	}
+
+	.breadcrumb-item {
+		font-weight: 300;
+		line-height: 1.82;
+
+		&:not(.active) {
+			text-decoration: underline;
+		}
+	}
+
+
+	@include media('>=tablet') {
+		justify-content: flex-start;
+	}
+
+}

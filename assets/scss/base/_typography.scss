@@ -1,0 +1,77 @@
+// Typography
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.h {
+	font-family: $headings-font-family;
+	font-weight: 300;
+	margin: 0 0 0.5em;
+	color: $headings-color;
+}
+
+h1, .h1 {
+	font-size: $h1-font-size;
+
+	@include media('>=phone') {
+		font-size: 28px;
+	}
+	
+	@include media('>=tablet') {
+		font-size: 38px;
+	}
+	
+	@include media('>=desktop') {
+		font-size: 44px;
+	}
+}
+
+h2, .h2 {
+	font-size: $h2-font-size;
+	color: $dark;
+
+	@include media('>=desktop') {
+		font-size: 30px;
+	}
+}
+
+h3, .h3 {
+	font-size: $h3-font-size;
+
+	@include media('>=desktop') {
+		font-size: 24px;
+	}
+}
+
+h4, .h4 {
+	font-size: $h4-font-size;
+}
+
+h5, .h5 {
+	font-size: $h5-font-size;
+}
+
+h6, .h6 {
+	font-size: $h6-font-size;
+}
+
+p {
+	margin: 0 0 1em;
+	letter-spacing: 0.01em;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1.375;
+
+	@include media('>=desktop') {
+		font-size: 18px;
+	}
+}
+
+a {
+	@include animate(color opacity visibility border-color background);
+	color: $base-link-color;
+	text-decoration: none;
+}

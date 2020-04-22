@@ -1,0 +1,133 @@
+{{#get (get (append 'articleBody.table-' (append moduleOffset '-data')) this) this}}
+  {{#with ..}}
+    {{#articleBody 'table'}}
+      <div class="section">
+        <div class="container">
+          <h2>
+            {{#articleBody 'table-title'}}
+              {{{articleBody.table-title}}}
+            {{/articleBody}}
+          </h2>
+          <div class="col-12">
+            {{#articleBody 'table-text'}}
+              <p>
+                {{#articleBody 'table-text'}}
+                  {{{articleBody.table-text}}}
+                {{/articleBody}}
+              </p>
+            {{/articleBody}}
+
+              <table class="table table-striped table-borderless d-none d-sm-table">
+                <thead>
+                  <tr>
+                    {{#articleBody 'table-column-header'}}
+                      <th class="text-uppercase" scope="col">
+                        {{{articleBody.table-column-header}}}
+                      </th>
+                    {{/articleBody}}
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#withGroupFilter ../.. (get (append 'articleBody.table-' (append ../moduleOffset '-group')) ..)}}
+                    {{#each this}}
+                      <tr>
+                        {{#with ../..}}
+                          {{#articleBody 'table-column'}}
+                            {{#with ../..}}
+                              <td scope="row" class="p-3">
+                                {{#if ../articleBody.table-column-anchor-text}}
+                                  <a href="{{render ../articleBody.table-column-link}}">
+                                    {{{render ../articleBody.table-column-anchor-text}}}
+                                  </a>
+                                {{else}}
+                                  {{{render ../articleBody.table-column-text}}}
+                                  {{~#compare ../../../../length '>' 1~}}
+                                    {{{render ../articleBody.table-column-multiple}}}
+                                  {{/compare}}
+                                {{/if}}
+                              </td>
+                            {{/with}}
+                          {{/articleBody}}
+                        {{/with}}
+                      </tr>
+                    {{/each}}
+                  {{/withGroupFilter}}
+                </tbody>
+              </table>
+
+
+              <table class="table table-striped table-borderless d-sm-table d-md-none">
+                {{!-- This makes the <thead> conditional if a column-header with no number is set --}}
+                {{#get (append 'articleBody.xs-table-' (append ../moduleOffset '-column-header')) ..}}
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase" scope="col">
+                        {{{this}}}
+                      </th>
+                    </tr>
+                  </thead>
+                {{/get}}
+                <tbody>
+                  {{!-- xs-table-#-group is not defined since it'll match table --}}
+                  {{#withGroupFilter ../.. (get (append 'articleBody.table-' (append ../moduleOffset '-group')) ..)}}
+                    {{#each this}}
+                       <tr>
+                        <td scope="row" class="p-3">
+                          {{!-- Go back up to iterate articleBody --}}
+                          {{#with ../../..}}
+                            {{!-- The first #articleBody call selects the right module offset --}}
+                            {{#articleBody 'xs-table'}}
+                              {{!-- The second call iterates the columns --}}
+                              {{#articleBody 'xs-table-column'}}
+                                {{!-- Make it back up to the table data --}}
+                                {{#with ../../..}}
+                                  {{!-- Fresh mark up, may need to be a <dl> or similar --}}
+                                  <p>
+                                    {{#if ../articleBody.xs-table-column-header}}
+                                      {{{render ../articleBody.xs-table-column-header}}}
+                                    {{/if}}
+                                    {{#if ../articleBody.xs-table-column-anchor-text}}
+                                      <a href="{{render ../articleBody.xs-table-column-link}}">
+                                        {{{render ../articleBody.xs-table-column-anchor-text}}}
+                                      </a>
+                                    {{else}}
+                                      {{{render ../articleBody.xs-table-column-text}}}
+                                      {{~#compare ../../../../length '>' 1~}}
+                                        {{{render ../articleBody.xs-table-column-multiple}}}
+                                      {{/compare}}
+                                    {{/if}}
+                                  </p>
+                                {{/with}}
+                              {{/articleBody}}
+                            {{/articleBody}}
+                          {{/with}}
+                        </td>
+                      </tr>
+                    {{/each}}
+                  {{/withGroupFilter}}
+                </tbody>
+              </table>
+
+            </div>
+            <div class="col-12">
+              {{#get (append 'articleBody.table-' (append ../moduleOffset '-note')) ..}}
+                <p class="note">
+                  {{{this}}}
+                </p>
+              {{/get}}
+            </div>
+            {{#articleBody 'table'}}
+              {{#if articleBody.table-cta-link}}
+                <div class="col-12 d-flex justify-content-center">
+                  <a href="{{articleBody.table-cta-link}}" class="btn btn-custom btn-danger">
+                    {{{articleBody.table-cta-anchor-text}}}
+                  </a>
+                </div>
+              {{/if}}
+            {{/articleBody}}
+          </div>
+        </div>
+      </div>
+    {{/articleBody}}
+  {{/with}}
+{{/get}}

@@ -1,0 +1,42 @@
+{{#articleBody 'list-group'}}
+  {{#if articleBody.list-group-title-1}}
+    <div class="section">
+      <div class="container">
+        <h2>
+          {{#articleBody 'list-group-title'}}
+            {{{articleBody.list-group-title}}}
+          {{/articleBody}}
+        </h2>
+        <div class="col-12">
+          {{#articleBody 'list-group-text'}}
+            <p>
+              {{#articleBody 'list-group-text'}}
+                {{{articleBody.list-group-text}}}
+              {{/articleBody}}
+            </p>
+          {{/articleBody}}
+        </div>
+        <section class="section maintenance-links">
+          <div class="col-12">
+            <ul class="listreset columns three-columns links-list">
+              {{#forEach ../significantLink}}
+                {{#is this.genre ../articleBody.list-group-genre}}
+                  {{#if (itemAt image 2) }}
+                    <li>
+                      <img class="icon" src="{{itemAt image 2}}" alt="{{this.name}} Icon">
+                      <a href="{{this.url}}">
+                        <span>
+                          {{{this.name}}}
+                        </span>
+                      </a>
+                    </li>
+                  {{/if}}
+                {{/is}}
+              {{/forEach}}
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  {{/if}}
+{{/articleBody}}

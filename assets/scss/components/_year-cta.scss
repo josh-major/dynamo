@@ -1,0 +1,53 @@
+.year-cta {
+
+    @include media('>=desktop') {
+        // padding: 0 25px;
+    }
+
+    .column {
+        background-color: #ebebeb;
+        margin-bottom: 2px;
+        width: 100%;
+        padding: 22px 19px;
+
+        @include media('>=widescreen') {
+            width: calc(50% - 1px);
+        }
+    }
+
+    .trim-title {
+        font-weight: 500;
+        line-height: 1.25;
+    }
+
+    .cta-list {
+
+        li {
+
+            &:after {
+                content: '|';
+                display: inline-block;
+                vertical-align: baseline;
+                margin: 0 3px 0 5px;
+            }
+
+            &:last-child {
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        a {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.286;
+            color: $red;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

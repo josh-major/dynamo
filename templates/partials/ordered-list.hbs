@@ -1,0 +1,33 @@
+{{#articleBody 'ordered-list'}}
+  {{#if articleBody.ordered-list-title-1}}
+    <section class="maintenance-tips section">
+      <div class="container">
+        <h2>
+          {{#articleBody 'ordered-list-title'}}
+            {{{articleBody.ordered-list-title}}}
+          {{/articleBody}}
+        </h2>
+        {{#articleBody 'ordered-list-text'}}
+          <div class="col-12">
+            <p>
+              {{#articleBody 'ordered-list-text'}}
+              {{{articleBody.ordered-list-text}}}
+              {{/articleBody}}
+            </p>
+          </div>
+        {{/articleBody}}
+        <ul class="tips-list counter-list">
+          {{#articleBody 'ordered-list-item'}}
+            <li>
+              <div>
+                {{#articleBody 'ordered-list-item'}}
+                  {{{articleBody.ordered-list-item}}}
+                {{/articleBody}}
+              </div>
+            </li>
+          {{/articleBody}}
+        </ul>
+      </div>
+    </section>
+  {{/if}}
+{{/articleBody}}

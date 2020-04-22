@@ -1,0 +1,144 @@
+$breakpoints: (
+	'xs-phone': 320px,
+	'phone': 480px,
+	'xl-phone': 576px,
+	'tablet': 768px,
+	'desktop': 992px,
+	'widescreen': 1200px,
+	'widedesktop': 1280px
+);
+
+// keywords
+$media-expressions: (
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+@import 'vendors/include-media';
+@import 'vendors/fonts';
+
+@import 'base/variables';
+@import 'base/functions';
+@import 'base/mixins';
+@import 'base/helpers';
+@import 'base/forms';
+@import 'base/typography';
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/hero-section";
+@import "layout/links-columns-list";
+
+@import "components/go-to-shop";
+@import "components/counter-list";
+@import "components/links-holder";
+
+@import "components/go-to-shop";
+@import "components/counter-list";
+@import "components/year-cta";
+@import "components/table";
+@import "components/tires";
+@import "components/carousel";
+
+.container {
+	@include media('<tablet') {
+		max-width: none !important;
+	}
+
+	@include media('>=desktop') {
+		max-width: 900px !important;
+	}
+	
+	@include media('>=widedesktop') {
+		max-width: 1210px !important;
+	}
+}
+
+.listreset {
+	@extend %listreset;
+}
+
+body {
+	min-width: 320px;
+}
+
+main {
+	overflow: hidden;
+}
+
+.section {
+	margin: 40px 0;
+	
+	@include media('>=tablet') {
+		margin: 50px 0;
+	}
+	
+	@include media('>=desktop') {
+		margin: 60px 0;
+	}
+}
+
+.h2-alt {
+	font-size: 30px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+
+	@include media('>=tablet') {
+		font-size: 36px;
+	}
+}
+
+.btn-custom {
+	text-transform: uppercase;
+	font-size: 21px;
+	font-family: $alt-font-sans-serif;
+	min-width: 100%;
+	border-radius: 0;
+
+	@include media('>=tablet') {
+		min-width: 280px;
+	}
+
+	&.btn-danger {
+		background-color: #d81e05;
+		border-color: #d81e05;
+
+		&:hover {
+			background-color: lighten(#d81e05, 5);
+			border-color: lighten(#d81e05, 5);
+		}
+	}
+
+	&.btn-primary {
+		border: 2px solid #003363;
+		background-color: #005eb8;
+		color: $white;
+		
+		&:hover {
+			color: $white;
+			background-color: #003363;
+			border-color: #003363;
+		}
+	}
+	
+	&.disabled {
+		background-color: $red !important;
+		color: rgba(255, 255, 255, 0.3) !important;
+		border-color: rgba(255, 255, 255, 0.3) !important;
+		
+		&:hover {
+			background-color: $red !important;
+			color: rgba(255, 255, 255, 0.3) !important;
+			border-color: rgba(255, 255, 255, 0.3) !important;
+		}
+	}
+}
+
+.full-width {
+	width: 100%;
+}

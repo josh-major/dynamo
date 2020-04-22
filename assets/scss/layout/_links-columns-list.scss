@@ -1,0 +1,47 @@
+ul {
+
+	&.columns {
+
+		@include media('>=tablet') {
+			columns: 2;
+		}
+
+		@include media('>=desktop') {
+			columns: 4;
+		}
+
+		li {
+			margin-bottom: 25px;
+			font-weight: 300;
+
+			@include media('>=desktop') {
+				margin-bottom: 15px;
+			}
+		}
+
+		a {
+			color: $red;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		&.three-columns {
+
+			@include media('>=desktop') {
+				column-count: 3;
+			}
+		}
+	}
+
+	&.links-list {
+
+		.icon {
+			max-width: 36px;
+			max-height: 36px;
+			margin-right: 16px;
+		}
+	}
+}

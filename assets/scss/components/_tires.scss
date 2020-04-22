@@ -1,0 +1,151 @@
+.section.gray {
+  margin-top: 0;
+  padding-top: 60px;
+  padding-bottom: 45px;
+  background-color: #ebebeb;
+}
+
+.tire-item {
+    background-color: #ffffff;
+    // width: 100%;
+    padding: 20px 15px;
+    margin-bottom: 10px;
+    line-height: 1.33;
+
+    @include media('<tablet') {
+        font-size: 15px;
+    }
+
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include media('>=desktop') {
+        padding: 13px 15px;
+    }
+
+    .key-list {
+        @include media('<=widedesktop') {
+            padding-left: 5rem;
+        }
+
+        @include media('<=tablet') {
+            padding-left: 7rem;
+        }
+
+        li {
+            margin-bottom: 19px;
+            line-height: 1.21;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            @include media('<tablet') {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .button-holder {
+
+        @include media('<tablet') {
+            padding-top: 45px;
+        }
+
+        @include media('<=tablet') {
+          justify-content: center !important;
+        }
+
+        .btn-custom {
+          min-width: unset;
+          width: auto;
+          float: left;
+          padding: 6px 10px;
+          font-family: 'ultramagneticlight';
+          min-width: 187px;
+        }
+    }
+
+    .btn {
+        max-width: 188px;
+        min-width: auto;
+        
+        @include media('>=tablet') {
+            max-width: none;
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+
+    p {
+
+        @include media('<tablet') {
+            font-size: 15px;
+        }
+    }
+}
+
+.tire-name {
+    font-size: 17px;
+    font-weight: 800;
+    padding-left: 3rem;
+    margin-bottom: 7px;
+    color: $red;
+    text-decoration: underline;
+    
+    @include media('>=tablet') {
+        padding-left: .65rem;
+        font-size: 21px;
+    }
+}
+
+.tire-image {
+    max-width: 170px;
+    max-height: 174px;
+    padding: 0 20px 0 32px;
+
+    @include media('<widedesktop') {
+        padding: 10px 5px 0;
+    }
+
+    @include media('<tablet') {
+        position: absolute;
+        left: 15px;
+        top: 40px;
+        width: 80px;
+        padding: 15px 5px 0;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.tire-item__brand {
+  min-width: 43px;
+}
+
+.tire-item__title-wrap {
+  @include media('<=tablet') {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.left-offset {
+  padding-left: 3.6rem;
+  padding-top: 5px;
+
+    @include media('<tablet') {
+        padding-left: 90px;
+    }
+}
+
+.tires-holder {
+
+    @include media('>=desktop') {
+        padding: 0 30px;
+    }
+}

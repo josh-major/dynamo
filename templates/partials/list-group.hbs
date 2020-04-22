@@ -1,0 +1,52 @@
+{{#articleBody 'list-group'}}
+  {{#if articleBody.list-group-title-1}}
+    <section class="section">
+      <div class="container">
+        <h2>
+          {{#articleBody 'list-group-title'}}
+            {{{this.articleBody.list-group-title}}}
+          {{/articleBody}}
+        </h2>
+        {{#articleBody 'list-group-text'}}
+          <div class="col-12">
+            <p>
+              {{#articleBody 'list-group-text'}}
+              {{{articleBody.list-group-text}}}
+              {{/articleBody}}
+            </p>
+          </div>
+        {{/articleBody}}
+        <div class="d-flex flex-wrap justify-content-md-between year-cta">
+          {{#each ../isRelatedTo}}
+            <div class="column">
+              <div class="row justify-content-md-between align-items-center">
+                {{#articleBody 'list-group-item-text' ..}}
+                  <div class="col-12 col-md-6 text-center text-md-left trim-title">
+                    {{#articleBody 'list-group-item-text'}}
+                      {{#with ../..}}
+                        {{{render ../articleBody.list-group-item-text}}}
+                      {{/with}}
+                    {{/articleBody}}
+                  </div>
+                {{/articleBody}}
+                <div class="col-12 col-md-6">
+                  <ul class="listreset cta-list d-flex justify-content-center align-items-center">
+                    {{#articleBody 'list-group-item-utility' ..}}
+                      {{#with ..}}
+                        <li>
+                          <a href="{{render ../articleBody.list-group-item-utility-link}}">
+                            {{{render ../articleBody.list-group-item-utility-anchor-text}}}
+                          </a>
+                        </li>
+                      {{/with}}
+                    {{/articleBody}}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+  {{/if}}
+{{/articleBody}}
