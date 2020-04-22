@@ -5,6 +5,8 @@
 //   initSlickCarousel();
 // });
 
+(function() {
+
 var mountForms = function mountForms(form) {
   // return selected option of passed select
   function getSelectedOption(sel) {
@@ -176,7 +178,7 @@ var mountForms = function mountForms(form) {
 
       try {
         linksWrap.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', linkClickHandler, false);
+          // link.addEventListener('click', linkClickHandler, false);
 
           if (link.innerText && link.getAttribute('href')) {
             linksArray.push({
@@ -302,21 +304,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var milageSelectes = document.getElementById('vehicle-milage');
 
   if (oilSelect)  createSelect(oilSelect)
-    if (form) {
-    mountForms(form);
-  }
+  //   if (form) {
+  //   mountForms(form);
+  // }
   if (milageSelectes) initSelectMaintenance(milageSelectes);
 });
 
-let magicGrid = new MagicGrid({
-  container: ".grid-container",
-  static: true,
-  gutter: 15,
-  maxColumns: 4,
-  useTransform: true,
-  // items: 30,
-  useMin: true,
-  // animate: true,
-});
+  var magicGrid = new MagicGrid({
+    container: ".grid-container",
+    static: true,
+    gutter: 15,
+    maxColumns: 4,
+    useTransform: true,
+    useMin: true
+  });
 
-magicGrid.listen();
+  window.onload = function() {
+    magicGrid.listen();
+  };
+})();
+
+
+
