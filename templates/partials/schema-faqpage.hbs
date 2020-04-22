@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{#articleBody 'ordered-list-item'}}
+      {
+        "@type": "Question",
+        "name": "{{sanitize articleBody.ordered-list-item-1}}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{#articleBody 'ordered-list-item'}}{{#if @first}}{{else}}{{{sanitize articleBody.ordered-list-item}}}{{#if @last}}{{else}} {{/if}}{{/if}}{{/articleBody}}"
+        }
+      }
+      {{~#if @last}}{{else}},{{/if}}
+    {{/articleBody}}
+  ]
+}

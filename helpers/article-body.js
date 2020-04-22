@@ -26,12 +26,16 @@ module.exports = function(template, object, options) {
     return objects;
   }, { });
 
+  var last = Object.keys(articles).pop();
+
   return Object.keys(articles).map((key) => {
     return options.fn({
       'articleBody': articles[key]
     }, {
       'data': {
-        'index': key
+        'index': key,
+        'first': key === '1',
+        'last': key === last
       }
     });
   }).join('');

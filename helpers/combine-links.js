@@ -21,7 +21,7 @@ module.exports = function(links, prefix, options) {
           var type = key.substr(prefix.length + 1, key.lastIndexOf('-') - prefix.length - 1);
           var offset = parseInt(key.substr(key.lastIndexOf('-') + 1));
 
-          if (!(offset in set)) {
+          if ((type === 'link' || type === 'anchor-text') && !(offset in set)) {
             set[offset] = { };
           }
 

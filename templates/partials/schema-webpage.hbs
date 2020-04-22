@@ -1,0 +1,18 @@
+{
+  "@context": "http://schema.org",
+  "@type": "WebPage",
+  "name": "{{{articleBody.title}}}",
+  "description": "{{{articleBody.description}}}",
+  "significantLink": {{schemaLd (renderCanonical (arrayify (pluck significantLink 'url')))}},
+  "speakable": [{
+    "@type": "SpeakableSpecification",
+    "cssSelector": "body .section .content"
+  }],
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "Firestone Complete Auto Care"
+  },
+  "copyrightYear": {{year}},
+  "headline": "{{coalesce articleBody.header-h1 articleBody.content-header-h1}}",
+  "url": "{{renderCanonical}}"
+}

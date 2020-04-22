@@ -25,11 +25,6 @@
 							{{{../articleBody.maintenance-trim-option}}}
 						</button>
 						<ul class="nav nav-tabs bg-light dropdown-menu" id="maintenance" role="tablist" aria-labelledby="dropdownMenuButton">
-							<li class="nav-item dropdown-item">
-								<a class="nav-link active" id="trim-disabled-tab" data-toggle="tab" href="#trim-disabled" role="tab" aria-controls="trim-disabled" aria-selected="true">
-									{{{../articleBody.maintenance-trim-option}}}
-								</a>
-							</li>
 							{{#withGroupFilter this ../articleBody.maintenance-trim-data}}
 								{{#with (render ../../articleBody.maintenance-trim-option-item-text)}}
 									<li class="nav-item dropdown-item">

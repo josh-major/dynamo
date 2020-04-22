@@ -83,5 +83,13 @@
         </div>
       </div>
     </footer>
+    {{#potentialAction 'renderHTML'}}
+      {{#compare assemblyVersion '!=' 'development'}}
+        {{#with @root}}
+          {{>includes}}
+        {{/with}}
+      {{/compare}}
+    {{/potentialAction}}
+    {{>tracking}}
   </body>
 </html>

@@ -10,7 +10,7 @@ module.exports = function(list, property, match, options) {
     match = false;
   }
 
-  (list || []).forEach(function(object) {
+  (Array.isArray(list) ? list : []).forEach(function(object) {
     var key = helper.get(property, object);
 
     if (typeof key === 'object') {
@@ -26,7 +26,7 @@ module.exports = function(list, property, match, options) {
     }
   });
 
-  return new handlebars.SafeString(Object.keys(sorted).sort().map(function(key, i) {
+  return new handlebars.SafeString(Object.keys(sorted).map(function(key, i) {
     return options.fn(sorted[key], {
       'data': {
         'index': key,

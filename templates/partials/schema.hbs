@@ -1,0 +1,15 @@
+<script type="application/ld+json">
+  {{>schema-webpage}}
+</script>
+{{#articleBody 'ordered-list'}}
+<script type="application/ld+json">
+  {{>schema-faqpage}}
+</script>
+{{/articleBody}}
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": {{schemaLd breadcrumb.itemListElement 10}}
+  }
+</script>

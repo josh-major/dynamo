@@ -1,0 +1,22 @@
+ <script>
+  var digitalData = {
+    page: {
+      pageInfo: {
+        pageName: "{{lowercase (replace tracking.pageName ' ' '-')}}"
+      }
+    }
+  };
+</script>
+<script src="https://file-optimizer.s3.amazonaws.com/firestone/assets/js/VisitorAPI.4.3.0.js"></script>
+<script src="https://file-optimizer.s3.amazonaws.com/firestone/assets/js/at.2.0.1.March19-2019.js"></script>
+{{#if articleBody.tracking-dtm-production}}
+  {{#potentialAction 'renderHTML'}}
+    {{#compare assemblyVersion '==' 'production'}}
+      <script src="{{{@root.articleBody.tracking-dtm-production}}}"></script>
+    {{else}}
+      {{#compare assemblyVersion '==' 'staging'}}
+        <script src="{{{@root.articleBody.tracking-dtm-staging}}}"></script>
+      {{/compare}}
+    {{/compare}}
+  {{/potentialAction}}
+{{/if}}
