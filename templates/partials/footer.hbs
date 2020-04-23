@@ -28,24 +28,32 @@
       </div>
       <div class="container">
         <div class="footer-nav d-none d-md-block">
-          <div class="grid-container">
+          <div class="row">
             {{#articleBody 'footer-menu'}}
-            <div class="grid-col">
-              {{#if articleBody.footer-menu-header}}
-              <h5>
-                {{{articleBody.footer-menu-header}}}
-              </h5>
-              {{/if}}
-              <ul>
-                {{#articleBody 'footer-menu-anchor-text'}}
-                <li>
-                  <a href="{{articleBody.footer-menu-link}}">
-                    {{{articleBody.footer-menu-anchor-text}}}
-                  </a>
-                </li>
+              <div class="col-sm-3 col-lg-2 col-{{@index}}">
+                {{#articleBody 'footer-menu'}}
+                  <div class="row-{{@index}}">
+                    {{#if articleBody.footer-menu-header}}
+                    <h5>
+                      {{{articleBody.footer-menu-header}}}
+                    </h5>
+                    {{/if}}
+                    <ul>
+                      {{#articleBody 'footer-menu'}}
+                      <li>
+                        {{#if articleBody.footer-menu-link}}
+                        <a href="{{articleBody.footer-menu-link}}">
+                          {{{articleBody.footer-menu-anchor-text}}}
+                        </a>
+                        {{else}}
+                          {{{articleBody.footer-menu-anchor-text}}}
+                        {{/if}}
+                      </li>
+                      {{/articleBody}}
+                    </ul>
+                  </div>
                 {{/articleBody}}
-              </ul>
-            </div>
+              </div>
             {{/articleBody}}
           </div>
         </div>
