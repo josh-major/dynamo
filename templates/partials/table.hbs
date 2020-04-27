@@ -3,12 +3,12 @@
     {{#articleBody 'table'}}
       <div class="section">
         <div class="container">
-          <h2>
+          <h2 class="text-uppercase">
             {{#articleBody 'table-title'}}
               {{{articleBody.table-title}}}
             {{/articleBody}}
           </h2>
-          <div class="col-12">
+          <div class="col-12 p-0 px-md-3">
             {{#articleBody 'table-text'}}
               <p>
                 {{#articleBody 'table-text'}}
@@ -17,11 +17,11 @@
               </p>
             {{/articleBody}}
 
-              <table class="table table-striped table-borderless d-none d-sm-table">
+              <table class="table table-striped table-borderless d-none d-md-table">
                 <thead>
                   <tr>
                     {{#articleBody 'table-column-header'}}
-                      <th class="text-uppercase" scope="col">
+                      <th class="text-uppercase p-3" scope="col">
                         {{{articleBody.table-column-header}}}
                       </th>
                     {{/articleBody}}

@@ -1,10 +1,42 @@
 @font-face {
     font-family: 'ultramagneticlight';
-    src: url('../fonts/ultramagnetic.eot');
-    src: url('../fonts/ultramagnetic.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/ultramagnetic.woff2') format('woff2'),
-         url('../fonts/ultramagnetic.woff') format('woff'),
-         url('../fonts/ultramagnetic.ttf') format('truetype');
+    src: url('/assets/dist/fonts/ultramagnetic.eot');
+    src: url('/assets/dist/fonts/ultramagnetic.eot?#iefix') format('embedded-opentype'),
+         url('/assets/dist/fonts/ultramagnetic.woff2') format('woff2'),
+         url('/assets/dist/fonts/ultramagnetic.woff') format('woff'),
+         url('/assets/dist/fonts/ultramagnetic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'foundation-sans';
+    src: url('/assets/dist/fonts/foundationsans-roman-webfont.woff') format('woff'),
+         url('/assets/dist/fonts/foundationsans-roman-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'foundation-sans';
+    src: url('/assets/dist/fonts/foundationsans-bold-webfont.woff') format('woff'),
+         url('/assets/dist/fonts/foundationsans-bold-webfont.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'foundation-sans';
+    src: url('/assets/dist/fonts/foundationsans-bolditalic-webfont.woff') format('woff'),
+         url('/assets/dist/fonts/foundationsans-bolditalic-webfont.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'foundation-sans';
+    src: url('/assets/dist/fonts/foundationsans-italic-webfont.woff') format('woff'),
+         url('/assets/dist/fonts/foundationsans-italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
 }

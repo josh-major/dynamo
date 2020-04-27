@@ -1,36 +1,10 @@
     <footer>
-      <div class="top-footer">
-        <div class="container">
-          <div class="row justify-content-sm-between">
-            <div class="col-12 col-md-8">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb breadcrumb-custom">
-                  {{#each breadcrumb.itemListElement}}
-                    {{~#if @last~}}
-                      <li class="breadcrumb-item active" aria-current="page">{{{item.name}}}</li>
-                    {{~else~}}
-                      <li class="breadcrumb-item"><a href="{{item.[@id]}}">{{{item.name}}}</a></li>
-                    {{~/if~}}
-                  {{/each}}
-                </ol>
-              </nav>
-            </div>
-            <div class="d-none d-md-block col-md-4">
-              <ul class="social-list">
-                <li><a href="{{articleBody.footer-social-twitter}}"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="{{articleBody.footer-social-facebook}}"><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="{{articleBody.footer-social-instagram}}"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="{{articleBody.footer-social-youtube}}"><i class="fab fa-youtube"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <span class="footer-shadow"></span>
       <div class="container">
-        <div class="footer-nav d-none d-md-block">
+        <div class="footer-nav">
           <div class="row">
             {{#articleBody 'footer-menu'}}
-              <div class="col-sm-3 col-lg-2 col-{{@index}}">
+              <div class="col-custom-{{@index}}">
                 {{#articleBody 'footer-menu'}}
                   <div class="row-{{@index}}">
                     {{#if articleBody.footer-menu-header}}
@@ -59,7 +33,18 @@
         </div>
         <div class="footer-bottom">
           <div class="row">
-            <div class="col-12 col-md-8 align-items-center align-items-md-start justify-content-center d-flex flex-column">
+            <div class="col-12 col-md-10 col-lg-11">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom">
+                  {{#each breadcrumb.itemListElement}}
+                    {{~#if @last~}}
+                      <li class="breadcrumb-item active" aria-current="page">{{{item.name}}}</li>
+                    {{~else~}}
+                      <li class="breadcrumb-item"><a href="{{item.[@id]}}">{{{item.name}}}</a></li>
+                    {{~/if~}}
+                  {{/each}}
+                </ol>
+              </nav>
               <ul class="main-nav-footer">
                 {{#articleBody 'footer-disclaimers'}}
                 <li>
@@ -78,7 +63,7 @@
                 </span>
               {{/if}}
             </div>
-            <div class="col-12 col-md-4 d-none d-md-block">
+            <div class="col-12 col-md-2 col-lg-1 d-none d-md-block">
               <div class="logo-holder">
                 {{#articleBody 'footer-brand'}}
                   <a href="{{articleBody.footer-brand-link}}">

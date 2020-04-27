@@ -1,41 +1,46 @@
 <div class="hero-wrap">
-	<div class="container">
-		<form class="choose-box" id="vehicle-form">
-			<div class="col-12">
-				<h3 class="text-uppercase">
-					{{{articleBody.selector-title}}}
-				</h3>
-			</div>
-			<div class="col-12 mb-1">
-				<select class="custom-select custom-select-lg mb-2" name="make">
-					<option value="/" selected disabled>
-						{{{articleBody.select-option-1}}}
-					</option>
-				</select>
-			</div>
-			<div class="col-12 mb-1">
-				<select class="custom-select custom-select-lg mb-2" name="model" disabled>
-					<option value="#" selected disabled>
-						{{{articleBody.select-option-2}}}
-					</option>
-				</select>
-			</div>
-			<div class="col-12 mb-1">
-				<select class="custom-select custom-select-lg mb-2" name="year" disabled>
-					<option value="#" selected disabled>
-						{{{articleBody.select-option-3}}}
-					</option>
-				</select>
-			</div>
-			<div class="col-12 d-flex justify-content-end">
-				<button class="btn btn-custom btn-primary disabled text-uppercase" type="submit" disabled>
-					{{{articleBody.selector-cta-anchor}}}
-				</button>
-			</div>
-		</form>
-	</div>
-	<div class="main-hero">
-		<span class="main-hero-bg mobile d-sm-none" style="background-image: url('{{itemAt image 1}}');"></span>
-		<span class="main-hero-bg desktop d-none d-sm-block" style="background-image: url('{{itemAt image 0}}');"></span>
-	</div>
+  <div class="container">
+    <div class="hero-holder">
+      <div class="main-hero">
+        <span class="main-hero-bg mobile d-sm-none" style="background-image: url('{{itemAt image 1}}');"></span>
+        <span class="main-hero-bg desktop d-none d-sm-block" style="background-image: url('{{itemAt image 0}}');"></span>
+      </div>
+      <h1 class="text-uppercase">
+        {{{articleBody.h1-header-title}}}
+      </h1>
+    </div>
+    <form class="choose-box" id="vehicle-form">
+      <div class="col-12">
+        <h3 class="text-uppercase mb-2">
+          {{{articleBody.selector-title}}}
+        </h3>
+      </div>
+      <div class="col-12">
+        <select class="custom-select custom-select-lg mb-2" name="make">
+          <option value="/" selected disabled>
+            {{{articleBody.select-option-1}}}
+          </option>
+        </select>
+      </div>
+      <div class="col-12">
+        <select class="custom-select custom-select-lg mb-2" name="model" disabled>
+          <option value="#" selected disabled>
+            {{{articleBody.select-option-2}}}
+          </option>
+        </select>
+      </div>
+      <div class="col-12">
+        <select class="custom-select custom-select-lg mb-2" name="year" disabled>
+          <option value="#" selected disabled>
+            {{{articleBody.select-option-3}}}
+          </option>
+        </select>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-custom btn-primary disabled text-uppercase" type="submit" disabled>
+          {{{articleBody.selector-cta-anchor}}}
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

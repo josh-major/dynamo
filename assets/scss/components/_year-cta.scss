@@ -1,47 +1,101 @@
 .year-cta {
 
-    @include media('>=desktop') {
-        // padding: 0 25px;
-    }
-
     .column {
         background-color: #ebebeb;
-        margin-bottom: 2px;
+        margin-bottom: 10px;
         width: 100%;
-        padding: 22px 19px;
+        padding: 18px 19px 10px;
 
-        @include media('>=widescreen') {
-            width: calc(50% - 1px);
+        @include media ('>=tablet') {
+            padding: 12px 20px;
+            max-width: 890px;
+        }
+
+        @include media ('>=desktop') {
+            padding-right: 30px;
         }
     }
 
     .trim-title {
-        font-weight: 500;
         line-height: 1.25;
+        font-size: 14px;
+        padding-bottom: 5px;
+
+        @include media ('>=tablet') {
+            padding-bottom: 0;
+        }
     }
 
     .cta-list {
+        flex-wrap: wrap;
+        font-size: 13px;
+
+        @include media ('>=tablet') {
+            font-size: 14px;
+        }
 
         li {
 
-            &:after {
+            &:before {
                 content: '|';
                 display: inline-block;
                 vertical-align: baseline;
                 margin: 0 3px 0 5px;
             }
 
-            &:last-child {
+            &:last-child,
+            &:first-child {
 
-                &:after {
+                &:before {
                     display: none;
+                }
+            }
+
+            &:last-child {
+                @include media ('<tablet') {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                a {
+                    @include animate(background-color border-color color box-shadow);
+                    display: inline-block;
+                    vertical-align: middle;
+                    padding: 12px 15px 11px;
+                    border: 1px solid #4a4a4a;
+                    background-color: $white;
+                    font-size: 16px;
+                    line-height: 1;
+                    margin-top: 10px;
+                    min-width: 168px;
+                    text-align: center;
+
+                    @include media ('>=tablet') {
+                        margin-left: 20px;
+                        margin-top: 0;
+                        min-width: 140px;
+                    }
+
+                    @include media ('>=desktop') {
+                        margin-left: 30px;
+                        min-width: 168px;
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+                        background-color: transparent;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-color: $red;
+                        box-shadow: 0 0 0 0.2rem rgba($red, .5);
+                    }
                 }
             }
         }
 
         a {
-            font-size: 14px;
-            font-weight: 300;
             line-height: 1.286;
             color: $red;
 

@@ -1,9 +1,9 @@
 {{#withMatch (get articleBody.maintenance-data this) articleBody.maintenance-filter-on articleBody.maintenance-filter-by}}
-  <div class="py-5 section">
+  <div class="py-2 section">
   	<div class="container">
       {{#with ..}}
     		{{#if articleBody.schedule-title-1}}
-    			<h2>
+    			<h2 class="text-uppercase">
     				{{#articleBody 'schedule-title'}}
     					{{{articleBody.schedule-title}}}
     				{{/articleBody}}

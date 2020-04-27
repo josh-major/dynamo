@@ -1,29 +1,25 @@
-.header-title-section {
-	background: $dark;
-	color: $white;
-	padding: 25px 0;
-
-	@include media('>=desktop') {
-		padding: 50px 0 47px;
-	}
-
-	h1 {
-		margin: 0;
-		text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-
-		@include media('<desktop') {
-			text-align: center;
-		}
-	}
-}
-
 .main-hero {
-	position: relative;
-	padding-top: 56%;
-	
-	@include media('>=tablet') {
-		padding-top: 31%;
-		min-height: 450px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+
+	@include media ('>=tablet') {
+		left: 15px;
+		right: 15px;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba($black, .4);
+		z-index: 1;
 	}
 	
 	&-bg {
@@ -37,33 +33,87 @@
 			repeat: no-repeat;
 			position: top center;
 		}
-		z-index: -1;
+	}
+}
+
+.hero-holder {
+	@include media ('<tablet') {
+		position: relative;
+		padding: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@include media ('>=tablet') {
+		width: calc(100% - 260px);
+		padding-left: 20px;
+		align-self: center;
+	}
+
+	@include media ('>=desktop') {
+		width: calc(100% - 340px);
+		padding-left: 30px;
+	}
+
+	&:before {
+		@include media ('<tablet') {
+			content: '';
+			width: 0;
+			min-height: 140px;
+			display: block;
+		}
 	}
 }
 
 .hero-wrap {
 	position: relative;
 
-	> .container {
-
-		@include media('<tablet') {
-			padding: 0 !important;
+	.container {
+		@include media ('<tablet') {
+			padding: 0;
 		}
 
-		@include media('>=tablet') {
-			position: absolute;
-			top: 0;
-			left: 50%;
-			transform:  translateX(-50%);
-			z-index: 5;
+		@include media ('>=tablet') {
+			display: flex;
+			align-items: flex-start;
+			flex-direction: row-reverse;
+			padding: 20px 35px;
+			position: relative;
+		}
+
+		@include media ('>=desktop') {
+			padding: 20px 45px;
+		}
+
+		&:before {
+			min-height: 268px;
+			width: 0;
+			content: '';
+
+			@include media ('>=tablet') {
+				display: block;
+			}
+
+			@include media ('>=desktop') {
+				min-height: 278px;
+			}
 		}
 	}
 
-	&.reverse {
+	h1 {
+		text-align: center;
+		color: $white;
+		text-shadow: 0 0 5px $black;
+		margin: 0;
 
-		@include media('<tablet') {
-			display: flex;
-			flex-direction: column-reverse;
+		@include media ('>=tablet') {
+			text-align: left;
+			text-shadow: 0 0 6px rgba($black, .6);
+		}
+
+		@include media ('>=widescreen') {
+			text-shadow: 0 0 6px $black;
 		}
 	}
 }
@@ -71,21 +121,38 @@
 .choose-box {
 	background-color: $red;
 	color: $white;
-	padding: 25px 33px;
+	padding: 25px 15px 20px;
 
 	@include media('>=tablet') {
-		width: 380px;
+		width: 260px;
+		padding: 25px 5px 20px;
 	}
-	
+
+	@include media ('>=desktop') {
+		width: 340px;
+	}
+
 	.btn-custom {
 		min-width: 0;
-		
+		font-size: 18px;
+		line-height: 1.17;
+		padding: 11px 30px 9px;
+
+		@include media ('>=tablet') {
+			font-size: 21px;
+			padding: 9px 17px 6px;
+		}
+
+		@include media ('>=desktop') {
+			padding: 12px 17px 11px;
+		}
+
 		&.disabled,
 		&:disabled {
 			border: 1px solid rgba(255, 255, 255, 0.3);
-			font-size: 18px;
 			font-weight: 300;
-			line-height: 1.17;
+			opacity: 1;
+			pointer-events: none;
 		}
 	}
 
@@ -94,8 +161,9 @@
 		background-color: $white;
 		color: $base-text-color;
 		font-size: 15px;
-		min-height: 42px;
-		
+		min-height: 40px;
+		margin-bottom: 10px;
+
 		&.disabled,
 		&:disabled {
 			background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%23cc0000' d='M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z'/%3e%3c/svg%3e") no-repeat right 1rem center/20px 36px;
@@ -104,11 +172,7 @@
 		}
 
 		@include media(">=tablet") {
-			height: 45px;
-		}
-		
-		@include media(">=desktop") {
-			height: 50px;
+			height: 41px;
 		}
 	}
 }

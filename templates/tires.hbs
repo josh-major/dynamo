@@ -1,11 +1,12 @@
 {{>head}}
 {{>header}}
 <main>
-  {{>header-title}}
   {{>hero-secondary}}
-  {{>tires}}
-  {{>table moduleOffset="1"}}
+  <div class="table-fill">
+    {{>table moduleOffset="1"}}
+  </div>
   {{>content moduleOffset="1"}}
+  {{>tires}}
   {{>ordered-list moduleOffset="1"}}
   {{>body-cta}}
 </main>

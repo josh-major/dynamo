@@ -310,18 +310,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
   if (milageSelectes) initSelectMaintenance(milageSelectes);
 });
 
-  // var magicGrid = new MagicGrid({
-  //   container: ".grid-container",
-  //   static: true,
-  //   gutter: 15,
-  //   maxColumns: 4,
-  //   useTransform: true,
-  //   useMin: true
-  // });
+  var magicGrid = new MagicGrid({
+    container: ".grid-container",
+    static: true,
+    gutter: 15,
+    maxColumns: 4,
+    useTransform: true,
+    useMin: true
+  });
 
-  // window.onload = function() {
-  //   magicGrid.listen();
-  // };
+  window.onload = function() {
+    magicGrid.listen();
+  };
 })();
 
 

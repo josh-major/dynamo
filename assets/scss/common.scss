@@ -50,12 +50,16 @@ $media-expressions: (
 		max-width: none !important;
 	}
 
+	@include media ('>=tablet') {
+		max-width: 750px !important;
+	}
+
 	@include media('>=desktop') {
-		max-width: 900px !important;
+		max-width: 1000px !important;
 	}
 	
 	@include media('>=widedesktop') {
-		max-width: 1210px !important;
+		max-width: 1200px !important;
 	}
 }
 
@@ -65,6 +69,8 @@ $media-expressions: (
 
 body {
 	min-width: 320px;
+	color: $dark !important;
+	font-family: $base-font-sans-serif !important;
 }
 
 main {
@@ -84,11 +90,15 @@ main {
 }
 
 .h2-alt {
-	font-size: 30px;
-	text-transform: uppercase;
-	margin-bottom: 10px;
+	font-size: 36px;
+	line-height: 1.11;
+	margin-bottom: 0;
 
-	@include media('>=tablet') {
+	@include media ('>=tablet') {
+		font-size: 30px;
+	}
+
+	@include media ('>=desktop') {
 		font-size: 36px;
 	}
 }
@@ -141,4 +151,40 @@ main {
 
 .full-width {
 	width: 100%;
+}
+
+.not-found {
+	background-color: #eee;
+	padding: 46px 15px 23px;
+	text-align: center;
+
+	@include media ('<tablet') {
+		margin: 0 -15px;
+	}
+
+	@include media ('>=tablet') {
+		padding: 80px 20px 65px;
+	}
+
+	@include media ('>=desktop') {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	h1 {
+		font-size: 26px;
+		text-transform: uppercase;
+		color: $red;
+		margin-bottom: 11px;
+
+		@include media ('>=tablet') {
+			font-size: 32px;
+			margin-bottom: 21px;
+		}
+	}
+
+	p {
+		font-size: 16px;
+		line-height: 1.31;
+	}
 }

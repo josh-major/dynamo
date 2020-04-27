@@ -1,12 +1,14 @@
 .links-holder {
   background-image: linear-gradient(180deg, #f6f4f4 0%, #e0dfdf 100%);
   width: 100%;
-  padding: 30px 20px;
+  padding: 25px 20px 20px;
   
   @include media('>=tablet') {
-    padding: 30px 40px;
-    width: 380px;
+    width: 260px;
+  }
 
+  @include media ('>=desktop') {
+    width: 340px;
   }
 
   .btn-set {
@@ -17,22 +19,9 @@
       &:not(:last-child) {
 
         > .btn-set__item {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       }
-
-      // &:last-child {
-        
-      //   .btn-set__item {
-      //     background-color: #005eb8;
-      //     border-color: #003363;
-      //     color: $white;
-
-      //     &:hover {
-      //       background: #003363;
-      //     }
-      //   }
-      // }
     }
 
     &__item {
@@ -46,10 +35,23 @@
       color: $red;
       border-color: $red;
 
+      @include media ('>=tablet', '<desktop') {
+        font-size: 17px;
+      }
+
       &:hover {
         background-color: $white;
         border-color: $red;
         color: $red;
+      }
+    }
+
+    .btn-custom {
+      min-width: 0;
+
+      @include media ('>=tablet', '<desktop') {
+        padding-left: 3px;
+        padding-right: 3px;
       }
     }
   }

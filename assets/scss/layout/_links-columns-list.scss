@@ -1,9 +1,16 @@
 ul {
 
 	&.columns {
+		columns: 2;
+		column-gap: 20px;
+		margin: 0 -15px;
+		font-size: 14px;
 
-		@include media('>=tablet') {
-			columns: 2;
+		@include media ('>=tablet') {
+			columns: 3;
+			column-gap: 40px;
+			font-size: 16px;
+			margin-top: 25px;
 		}
 
 		@include media('>=desktop') {
@@ -11,11 +18,40 @@ ul {
 		}
 
 		li {
-			margin-bottom: 25px;
+			margin-bottom: 10px;
 			font-weight: 300;
+			display: inline-block;
+			width: 100%;
+			page-break-inside: avoid;
 
 			@include media('>=desktop') {
 				margin-bottom: 15px;
+			}
+		}
+
+		&:not([class*="three-columns"]) {
+			a {
+				@include animate(background-color border-color color box-shadow);
+				text-decoration: none;
+				display: block;
+				padding: 9px 5px 8px;
+				border: 1px solid #4a4a4a;
+				text-align: center;
+
+				@include media ('>=tablet') {
+					padding: 7px 5px;
+				}
+
+				&:hover {
+					text-decoration: none;
+					background-color: $light-gray;
+				}
+
+				&:focus {
+					outline: none;
+					border-color: $red;
+					box-shadow: 0 0 0 0.2rem rgba($red, .5);
+				}
 			}
 		}
 
@@ -29,19 +65,45 @@ ul {
 		}
 
 		&.three-columns {
+			column-count: inherit;
+			font-size: 16px;
+			line-height: 1.25;
+			column-gap: inherit;
+			margin: 0;
+
+			@include media ('>=tablet') {
+				column-count: 3;
+				column-gap: inherit;
+				margin: 0;
+			}
 
 			@include media('>=desktop') {
 				column-count: 3;
+			}
+
+			li {
+				display: flex;
+				align-items: flex-start;
+				margin-bottom: 18px;
+				padding-right: 10px;
+
+				@include media ('>=tablet') {
+					margin-bottom: 38px;
+				}
+			}
+
+			a {
+				margin-top: 5px;
 			}
 		}
 	}
 
 	&.links-list {
-
 		.icon {
-			max-width: 36px;
-			max-height: 36px;
-			margin-right: 16px;
+			max-width: 32px;
+			max-height: 32px;
+			margin-right: 14px;
+			flex-shrink: 0;
 		}
 	}
 }

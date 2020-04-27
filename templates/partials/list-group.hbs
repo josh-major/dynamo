@@ -2,7 +2,7 @@
   {{#if articleBody.list-group-title-1}}
     <section class="section">
       <div class="container">
-        <h2>
+        <h2 class="text-uppercase">
           {{#articleBody 'list-group-title'}}
             {{{this.articleBody.list-group-title}}}
           {{/articleBody}}
@@ -16,12 +16,12 @@
             </p>
           </div>
         {{/articleBody}}
-        <div class="d-flex flex-wrap justify-content-md-between year-cta">
+        <div class="d-flex flex-wrap justify-content-md-between year-cta col-12">
           {{#each ../isRelatedTo}}
             <div class="column">
               <div class="row justify-content-md-between align-items-center">
                 {{#articleBody 'list-group-item-text' ..}}
-                  <div class="col-12 col-md-6 text-center text-md-left trim-title">
+                  <div class="col-12 col-md-4 col-lg-5 text-center text-md-left trim-title">
                     {{#articleBody 'list-group-item-text'}}
                       {{#with ../..}}
                         {{{render ../articleBody.list-group-item-text}}}
@@ -29,8 +29,8 @@
                     {{/articleBody}}
                   </div>
                 {{/articleBody}}
-                <div class="col-12 col-md-6">
-                  <ul class="listreset cta-list d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-7">
+                  <ul class="listreset cta-list d-flex justify-content-center justify-content-md-end align-items-center">
                     {{#articleBody 'list-group-item-utility' ..}}
                       {{#with ..}}
                         <li>

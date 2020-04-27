@@ -1,31 +1,34 @@
-<div class="hero-wrap reverse">
-	<div class="container">
-		<div class="col-lg-4 p-0 p-sm-0">
-			<div class="links-holder">
-        <h3 class="text-uppercase mb-4">
-          {{{articleBody.cta-title}}}
-        </h3>
-        <ul class="btn-set">
-          {{#articleBody 'cta'}}
+<div class="hero-wrap">
+  <div class="container">
+    <div class="hero-holder">
+      <div class="main-hero">
+        <span class="main-hero-bg mobile d-sm-none" style="background-image: url('{{itemAt image 1}}');"></span>
+        <span class="main-hero-bg desktop d-none d-sm-block" style="background-image: url('{{itemAt image 0}}');"></span>
+      </div>
+      <h1 class="text-uppercase">
+        {{{articleBody.h1-header-title}}}
+      </h1>
+    </div>
+    <div class="links-holder">
+      <h3 class="text-uppercase mb-2">
+        {{{articleBody.cta-title}}}
+      </h3>
+      <ul class="btn-set">
+        {{#articleBody 'cta'}}
+          <li>
+            <a href="{{articleBody.cta-link}}" class="btn btn-outline-danger btn-set__item">
+              {{{articleBody.cta-anchor-text}}}
+            </a>
+          </li>
+          {{#if articleBody.cta-anchor-text-important }}
             <li>
-              <a href="{{articleBody.cta-link}}" class="btn btn-outline-danger btn-set__item">
-                {{{articleBody.cta-anchor-text}}}
+              <a href="{{articleBody.cta-link-important}}" class="btn btn-custom btn-primary btn-set__item">
+                {{{articleBody.cta-anchor-text-important}}}
               </a>
             </li>
-            {{#if articleBody.cta-anchor-text-important }}
-              <li>
-                <a href="{{articleBody.cta-link-important}}" class="btn btn-custom btn-primary btn-set__item">
-                  {{{articleBody.cta-anchor-text-important}}}
-                </a>
-              </li>
-            {{/if}}
-          {{/articleBody}}
-        </ul>
-      </div>
-		</div>
-	</div>
-		<div class="main-hero">
-			<span class="main-hero-bg mobile d-sm-none" style="background-image: url('{{itemAt image 1}}');"></span>
-			<span class="main-hero-bg desktop d-none d-sm-block" style="background-image: url('{{itemAt image 0}}');"></span>
-	</div>
+          {{/if}}
+        {{/articleBody}}
+      </ul>
+    </div>
+  </div>
 </div>

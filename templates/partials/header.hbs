@@ -22,11 +22,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-              <li class="nav-ite pt-4 pb-2 d-lg-none">
-                {{#if articleBody.top-phone-number}}
-                  {{{articleBody.top-phone-number}}}
-                {{/if}}
-              </li>
               {{#articleBody 'top'}}
                 <li class="nav-item d-lg-none">
                   <a href="{{articleBody.top-link}}" class="nav-link">
@@ -44,11 +39,6 @@
             </ul>
           </div>
         </nav>
-        <div class="phone d-none d-lg-block">
-          {{#if articleBody.top-phone-number}}
-            {{{articleBody.top-phone-number}}}
-          {{/if}}
-        </div>
       </div>
     </div>
   </div>
