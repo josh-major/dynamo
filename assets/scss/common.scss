@@ -87,6 +87,18 @@ main {
 	@include media('>=desktop') {
 		margin: 60px 0;
 	}
+
+	&.maintenance-links {
+		margin-top: 20px;
+
+		@include media ('>=tablet') {
+			margin-top: 25px;
+		}
+
+		@include media ('>=desktop') {
+			margin-top: 30px;
+		}
+	}
 }
 
 .h2-alt {
@@ -100,6 +112,20 @@ main {
 
 	@include media ('>=desktop') {
 		font-size: 36px;
+	}
+}
+
+.content {
+	[class*="col-"] + h2 {
+		margin-top: 40px;
+
+		@include media('>=tablet') {
+			margin-top: 50px;
+		}
+		
+		@include media('>=desktop') {
+			margin-top: 60px;
+		}
 	}
 }
 

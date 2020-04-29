@@ -83,13 +83,22 @@
 		}
 	}
 
+	.nav-item {
+		@include media ('>=desktop') {
+			margin-right: 20px;
+		}
+
+		@include media ('>=widescreen') {
+			margin-right: 29px;
+		}
+	}
+
 	.nav-link {
 		font-family: $base-font-sans-serif;
 		font-size: 15px;
 		font-weight: 400;
 		text-transform: uppercase;
-		color: #333333 !important;
-		letter-spacing: 0.03em;
+		color: $dark !important;
 
 		@include media ('>=desktop') {
 			font-size: 14px;
@@ -100,7 +109,7 @@
 		}
 
 		&:hover {
-			color: lighten( #333333, 50% ) !important;
+			color: lighten( $dark, 50% ) !important;
 		}
 	}
 

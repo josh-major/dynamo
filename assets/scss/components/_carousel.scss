@@ -154,11 +154,12 @@
 	position: relative;
 
 	@include media('<tablet') {
-		padding: 0 30px;
+		padding: 0 40px;
 	}
 
 	@include media('>=tablet') {
-		padding-left: 30px;
+		padding: 0 50px;
+		margin: 0 !important;
 	}
 
 	.dropdown-toggle {
@@ -234,16 +235,13 @@
 	@include media('>=tablet') {
 		position: absolute;
 		top: 0;
-		left: 323px;
-		max-width: 290px;
+		left: 365px;
+		max-width: 305px;
 	}
 
 	@include media('>=desktop') {
-		left: 323px;
-	}
-
-	@include media('>=widedesktop') {
-		left: 30%;
+		left: 350px;
+		max-width: 290px;
 	}
 }
 
@@ -251,6 +249,10 @@
 	padding: 0;
 
 	@include media('>=tablet') {
+		max-width: 305px;
+	}
+
+	@include media ('>=desktop') {
 		max-width: 290px;
 	}
 

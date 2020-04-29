@@ -6,146 +6,243 @@
 }
 
 .tire-item {
-    background-color: #ffffff;
-    // width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+  line-height: 1.33;
+  box-shadow: 0 0 4px rgba($black, .25);
+
+  @include media('<tablet') {
+    font-size: 15px;
+    display: block;
     padding: 20px 15px;
-    margin-bottom: 10px;
-    line-height: 1.33;
+  }
 
-    @include media('<tablet') {
-        font-size: 15px;
+  @include media ('>=tablet') {
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @include media('>=desktop') {
+    padding: 13px 35px;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  @include media ('>=widescreen') {
+     padding: 14px 40px 14px 50px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .tire-layout {
+    display: inline;
+
+    @include media ('>=desktop') {
+      display: block;
+      padding-right: 20px;
     }
 
+    @include media ('>=desktop') {
+      width: 75%;
+    }
 
-    &:last-child {
+    @include media ('>=widescreen') {
+      width: 77%;
+    }
+  }
+
+  .tire-wrapp {
+    @extend %clearfix;
+
+    @include media ('>=tablet') {
+      flex-grow: 1;
+    }
+
+    @include media ('>=desktop') {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+  }
+
+  .key-list {
+    padding-left: 15px;
+    width: calc(100% - 95px);
+    float: right;
+
+    @include media ('>=tablet') {
+      width: calc(100% - 160px);
+    }
+
+    @include media ('>=desktop') {
+      width: 25%;
+      margin: 0;
+      float: none;
+    }
+
+    @include media ('>=widescreen') {
+      width: 23%;
+    }
+
+    li {
+      margin-bottom: 5px;
+      line-height: 1.21;
+      font-size: 14px;
+
+      @include media ('>=tablet') {
+         font-size: 15px;
+      }
+
+      @include media ('>=desktop') {
+        margin-bottom: 23px;
+      }
+
+      &:last-child {
         margin-bottom: 0;
+      }
+    }
+  }
+
+  .button-holder {
+    @include media ('<tablet') {
+      width: 100%;
+      text-align: center;
+      padding-top: 18px;
     }
 
-    @include media('>=desktop') {
-        padding: 13px 15px;
+    @include media ('>=tablet') {
+      padding-left: 25px;
     }
 
-    .key-list {
-        @include media('<=widedesktop') {
-            padding-left: 5rem;
-        }
+    .btn-custom {
+      padding: 6px 10px;
+      font-family: 'ultramagneticlight';
+      min-width: 188px;
 
-        @include media('<=tablet') {
-            padding-left: 7rem;
-        }
+      @include media ('>=tablet') {
+        min-width: 150px;
+      }
 
-        li {
-            margin-bottom: 19px;
-            line-height: 1.21;
+      @include media ('>=desktop', '<widescreen') {
+        min-width: 156px;
+      }
 
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            @include media('<tablet') {
-                font-size: 14px;
-            }
-        }
+      @include media ('>=widescreen') {
+        min-width: 188px;
+      }
     }
+  }
 
-    .button-holder {
-
-        @include media('<tablet') {
-            padding-top: 45px;
-        }
-
-        @include media('<=tablet') {
-          justify-content: center !important;
-        }
-
-        .btn-custom {
-          min-width: unset;
-          width: auto;
-          float: left;
-          padding: 6px 10px;
-          font-family: 'ultramagneticlight';
-          min-width: 187px;
-        }
+  p {
+    @include media('<tablet') {
+      font-size: 15px;
     }
-
-    .btn {
-        max-width: 188px;
-        min-width: auto;
-        
-        @include media('>=tablet') {
-            max-width: none;
-            width: 100%;
-            min-width: 100%;
-        }
-    }
-
-    p {
-
-        @include media('<tablet') {
-            font-size: 15px;
-        }
-    }
+  }
 }
 
 .tire-name {
-    font-size: 17px;
-    font-weight: 800;
-    padding-left: 3rem;
-    margin-bottom: 7px;
-    color: $red;
-    text-decoration: underline;
-    
-    @include media('>=tablet') {
-        padding-left: .65rem;
-        font-size: 21px;
-    }
+  font-size: 17px;
+  font-weight: 700;
+  padding-bottom: 7px;
+  color: $red;
+  display: block;
+  width: 100%;
+  text-decoration: underline;
+
+  @include media('>=tablet') {
+    font-size: 21px;
+    padding-bottom: 0;
+  }
+
+  @include media ('>=widescreen') {
+    padding-bottom: 5px;
+  }
 }
 
 .tire-image {
-    max-width: 170px;
-    max-height: 174px;
-    padding: 0 20px 0 32px;
+  float: left;
+  width: 80px;
+  margin-right: 15px;
 
-    @include media('<widedesktop') {
-        padding: 10px 5px 0;
-    }
+  @include media ('>=tablet') {
+    width: 135px;
+    margin-right: 25px;
+  }
 
-    @include media('<tablet') {
-        position: absolute;
-        left: 15px;
-        top: 40px;
-        width: 80px;
-        padding: 15px 5px 0;
-    }
+  @include media ('>=desktop') {
+    margin-right: 20px;
+    width: 130px;
+  }
 
-    img {
-        width: 100%;
+  @include media ('>=widescreen') {
+     margin-right: 45px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @include media ('>=desktop') {
+      max-height: 174px;
+      width: auto;
     }
+  }
 }
 
 .tire-item__brand {
   min-width: 43px;
+  margin-bottom: 10px;
 }
 
 .tire-item__title-wrap {
-  @include media('<=tablet') {
-    display: flex;
-    align-items: flex-start;
+  padding: 0 5px 5px;
+
+  @include media ('>=tablet') {
+    float: right;
+    padding: 0 0 5px;
+    width: calc(100% - 160px);
+  }
+
+  @include media ('>=desktop') {
+    width: calc(100% - 150px);
+    padding-top: 10px;
+  }
+
+  @include media ('>=widescreen') {
+    width: calc(100% - 175px);
   }
 }
 
 .left-offset {
-  padding-left: 3.6rem;
-  padding-top: 5px;
+  margin-bottom: 6px;
+  float: right;
+  width: calc(100% - 95px);
 
-    @include media('<tablet') {
-        padding-left: 90px;
-    }
+  @include media ('>=tablet') {
+    width: calc(100% - 160px);
+  }
+
+  @include media ('>=desktop') {
+    width: calc(100% - 150px);
+  }
+
+  @include media ('>=widescreen') {
+    width: calc(100% - 175px);
+  }
 }
 
 .tires-holder {
+  @include media('>=desktop') {
+    padding: 0 80px 0 30px;
+  }
 
-    @include media('>=desktop') {
-        padding: 0 30px;
-    }
+  @include media ('>=widescreen') {
+    padding-right: 100px;
+  }
 }
